@@ -22,9 +22,19 @@ nvidia-smi
 
 ### Install Docker
 
+Download and install docker
+
 ```shell
 curl https://get.docker.com | sh
 sudo service docker start
+```
+
+Allow docker for non-root users as well
+
+```shell
+sudo groupadd docker
+sudo usermod -aG docker $USER
+newgrp docker
 ```
 
 
@@ -59,25 +69,29 @@ export NVIDIA_CONTAINER_TOOLKIT_VERSION=1.18.1-1
 ```
 
 ### Configure CUDA Container Toolkit
-<!-- TODO: normal nvidia-ctk commands -->
 
 ```shell
-nvidia-ctk runtime configure --runtime=docker --config=/var/snap/docker/current/config/daemon.json
-sudo snap restart docker
+nvidia-ctk runtime configure --runtime=docker
+sudo service docker restart
 ```
 
 ### Verify CUDA Container Toolkit
 
 ```shell
-sudo docker run --gpus all nvcr.io/nvidia/k8s/cuda-sample:nbody nbody -gpu -benchmark
+sudo docker run --rm --runtime=nvidia --gpus all ubuntu nvidia-smi
 ```
 
 ```shell
-sudo docker run --rm --runtime=nvidia --gpus all ubuntu nvidia-smi
-
-
-<!-- TODO vLLM install https://docs.nvidia.com/deeplearning/frameworks/vllm-release-notes/overview.html -->
+sudo docker run --gpus all nvcr.io/nvidia/k8s/cuda-sample:nbody nbody -gpu -benchmark
 ```
+
+### Run vLLM 25.12
+Check for compatibility with CUDA toolkit first. For instance vLLM 25.12 is compatible with CUDA toolkit 13.1.
+
+```bash
+docker run --gpus all -it --rm nvcr.io/nvidia/vllm:25.12-py3
+```
+
 
 ### Reference Pages
 
@@ -101,4 +115,5 @@ sudo docker run --rm --runtime=nvidia --gpus all ubuntu nvidia-smi
 #### Docker
 - https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository
 - https://learn.microsoft.com/en-us/windows/wsl/tutorials/gpu-compute
+- https://docs.docker.com/engine/install/linux-postinstall/
 
