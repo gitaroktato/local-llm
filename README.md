@@ -117,3 +117,5 @@ docker run --gpus all -it --rm nvcr.io/nvidia/vllm:25.12-py3
 - https://learn.microsoft.com/en-us/windows/wsl/tutorials/gpu-compute
 - https://docs.docker.com/engine/install/linux-postinstall/
 
+#### Open WebUI
+- https://github.com/open-webui/open-webui
