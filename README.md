@@ -97,6 +97,8 @@ docker run --gpus all -it --rm nvcr.io/nvidia/vllm:25.12-py3
 
 Possible issue on lower peformance, when running through WSL 2 - [issue ticket](https://github.com/vllm-project/vllm/issues/1084)
 
+Example from local run: ![vLLM error with WSL](img/vllm_error_with-WSL.png)
+
 ### Reference Pages
 
 #### CUDA drivers
