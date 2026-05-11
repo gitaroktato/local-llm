@@ -5,6 +5,8 @@
 ### Hardware
 
 - [PCIe Accelerator - Skymizer HTX301](https://wccftech.com/this-pcie-ai-accelerator-card-packs-384-gb-memory-run-700b-llms-240w/)
+- [Blackhole PCIe](https://tenstorrent.com/hardware/cards)
+
 ### Embedded
 
 - [RPi AI HAT +2](https://www.raspberrypi.com/documentation/accessories/ai-hat-plus.html#AIHAT-models)
@@ -35,3 +37,7 @@
 - [VRAM calculator](https://apxml.com/tools/vram-calculator)
 - [Unsloth with OpenCode](https://unsloth.ai/docs/integrations/opencode)
 - [Guide on local LLMs](https://www.reddit.com/r/LocalLLaMA/comments/1sknx6n/best_local_llms_apr_2026/)
+
+### Blogposts
+
+- [Local LLM introduction](https://www.aiforswes.com/p/you-dont-need-to-spend-100mo-on-claude)
