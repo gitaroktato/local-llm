@@ -1,5 +1,14 @@
 # Running through Unsloth + Arch Linux
 
+
+## Commands
+
+Getting PCIe lane bandwith:
+
+```shell
+sudo watch -c -n2 'lspci -s 00:01.0 -vvv | grep LnkSta'
+```
+
 ## Bookmarks
 
 ### Hardware
