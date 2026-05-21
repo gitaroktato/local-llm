@@ -3,10 +3,42 @@
 
 ## Commands
 
-Getting PCIe lane bandwith:
+
+### PCIe testing
+
+Getting PCIe lane bandwidth (possible):
 
 ```shell
 sudo watch -c -n2 'lspci -s 00:01.0 -vvv | grep LnkSta'
+```
+
+Understanding actual bandwidth with `nvidia-smi`:
+
+```shell
+nvidia-smi dmon -s pceutv -d 1
+```
+
+Just RX/TX
+
+```shell
+nvidia-smi dmon -s t -d 1
+```
+
+### PCIe benchmarks
+
+Stress-testing PCIe port
+Should be possible with `gpu-burn-git`: https://aur.archlinux.org/packages/gpu-burn-git
+
+### Using `nvbandwith`
+
+See: https//github.com/NVIDIA/nvbandwidth
+
+Make sure you have NVidia toolkit and `nvcc` installed.
+Put the following lines into your `.bashrc`
+
+```bash
+export PATH=/opt/cuda/bin:$PATH
+export LD_LIBRARY_PATH=/opt/cuda/lib64:$LD_LIBRARY_PATH
 ```
 
 ## Bookmarks
