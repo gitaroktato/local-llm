@@ -63,8 +63,19 @@ nvbandwidth -t host_to_device_bidirectional_memcpy_sm
 nvbandwidth -t device_to_host_bidirectional_memcpy_sm
 nvbandwidth -p device_to_host_bidirectional -i 16
 nvbandwidth -p host_to_device_bidirectional -i 16
-
 ```
+
+Reference numbers:
+
+| PCIe generation | Signaling rate (GT/s per lane) | Encoding | Effective per-lane throughput (GB/s) | Effective x4 link, one-way (GB/s) | Effective x8 link, one-way (GB/s) |
+|---|---:|---|---:|---:|---:|
+| PCIe 3.0 | 8.0 | 128b/130b | 0.985 | 3.94 | 7.88 |
+| PCIe 4.0 | 16.0 | 128b/130b | 1.969 | 7.88 | 15.75 |
+| PCIe 5.0 | 32.0 | 128b/130b | 3.938 | 15.75 | 31.51 |
+
+Notes:
+- Values are unidirectional (one-way) effective line rates accounting for 128b/130b encoding overhead only. Additional PCIe protocol overhead further reduces payload throughput.
+- PCIe links are full-duplex; the reverse direction has the same capacity.
 
 ## Bookmarks
 
