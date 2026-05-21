@@ -41,6 +41,22 @@ export PATH=/opt/cuda/bin:$PATH
 export LD_LIBRARY_PATH=/opt/cuda/lib64:$LD_LIBRARY_PATH
 ```
 
+Add `boost-libs` with
+
+```shell
+sudo pacman -S boost boost-libs
+```
+
+Compile from source with
+
+```bash
+cmake .
+make
+```
+
+
+Run benchmarks
+
 ## Bookmarks
 
 ### Hardware
