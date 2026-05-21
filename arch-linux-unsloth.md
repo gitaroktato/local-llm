@@ -54,8 +54,17 @@ cmake .
 make
 ```
 
+Run benchmarks:
 
-Run benchmarks
+```bash
+nvbandwidth -t host_to_device_bidirectional_memcpy_ce
+nvbandwidth -t device_to_host_bidirectional_memcpy_ce
+nvbandwidth -t host_to_device_bidirectional_memcpy_sm
+nvbandwidth -t device_to_host_bidirectional_memcpy_sm
+nvbandwidth -p device_to_host_bidirectional -i 16
+nvbandwidth -p host_to_device_bidirectional -i 16
+
+```
 
 ## Bookmarks
 
