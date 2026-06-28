@@ -118,3 +118,7 @@ Notes:
 ### Blogposts
 
 - [Local LLM introduction](https://www.aiforswes.com/p/you-dont-need-to-spend-100mo-on-claude)
+
+### Benchmarking
+
+- <https://openbenchmarking.org/>
