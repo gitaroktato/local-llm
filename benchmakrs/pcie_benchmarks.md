@@ -19,10 +19,10 @@ What to look for: If you see a stream of `PCIe Bus Error: severity=Corrected` or
 ## Kolink 300mm PGW-RC-MRK-011 
 
 ```bash
-nvbandwidth -p host_to_device_bidirectional -i 16
+nvbandwidth -p host_to_device_bidirectional -i 128
 ```
 
-```bash
+```text
 nvbandwidth Version: v0.9
 Built from Git version: v0.9
 
@@ -55,7 +55,7 @@ Performance can vary with software drivers, hardware clocks, and system topology
 nvbandwidth -p device_to_host_bidirectional -i 128
 ```
 
-```bash
+```text
 nvbandwidth Version: v0.9
 Built from Git version: v0.9
 
@@ -84,3 +84,72 @@ NOTE: The reported results may not reflect the full capabilities of the platform
 Performance can vary with software drivers, hardware clocks, and system topology.
 ```
 
+
+## ADT-LINK K33UR-TL 30 cm
+
+```bash
+nvbandwidth -p host_to_device_bidirectional -i 128
+```
+
+```text
+nvbandwidth Version: v0.9
+Built from Git version: v0.9
+
+CUDA Runtime Version: 13030
+CUDA Driver Version: 13030
+Driver Version: 610.43.02
+
+archlinux
+Device 0: NVIDIA GeForce RTX 5060 Ti (00000000:01:00)
+
+Running host_to_device_bidirectional_memcpy_ce.
+memcpy CE CPU(row) <-> GPU(column) bandwidth (GB/s)
+           0
+ 0     18.04
+
+SUM host_to_device_bidirectional_memcpy_ce 18.04
+
+Running host_to_device_bidirectional_memcpy_sm.
+memcpy SM CPU(row) <-> GPU(column) bandwidth (GB/s)
+           0
+ 0     22.43
+
+SUM host_to_device_bidirectional_memcpy_sm 22.43
+
+NOTE: The reported results may not reflect the full capabilities of the platform.
+Performance can vary with software drivers, hardware clocks, and system topology.
+```
+
+
+```bash
+nvbandwidth -p device_to_host_bidirectional -i 128
+```
+
+```text
+nvbandwidth Version: v0.9
+Built from Git version: v0.9
+
+CUDA Runtime Version: 13030
+CUDA Driver Version: 13030
+Driver Version: 610.43.02
+
+archlinux
+Device 0: NVIDIA GeForce RTX 5060 Ti (00000000:01:00)
+
+Running device_to_host_bidirectional_memcpy_ce.
+memcpy CE CPU(row) <-> GPU(column) bandwidth (GB/s)
+0
+0     26.84
+
+SUM device_to_host_bidirectional_memcpy_ce 26.84
+
+Running device_to_host_bidirectional_memcpy_sm.
+memcpy SM CPU(row) <-> GPU(column) bandwidth (GB/s)
+0
+0     22.49
+
+SUM device_to_host_bidirectional_memcpy_sm 22.49
+
+NOTE: The reported results may not reflect the full capabilities of the platform.
+Performance can vary with software drivers, hardware clocks, and system topology.
+```
