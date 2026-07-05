@@ -153,3 +153,79 @@ SUM device_to_host_bidirectional_memcpy_sm 22.49
 NOTE: The reported results may not reflect the full capabilities of the platform.
 Performance can vary with software drivers, hardware clocks, and system topology.
 ```
+
+
+ 
+## ADT-LINK K33UR-TL 30 cm and ADT-LINK K33UF-TR 60 cm
+
+```bash
+nvbandwidth -p host_to_device_bidirectional -i 128
+```
+
+```text
+nvbandwidth Version: v0.9
+Built from Git version: v0.9
+
+CUDA Runtime Version: 13030
+CUDA Driver Version: 13030
+Driver Version: 610.43.02
+
+archlinux
+Device 0: NVIDIA GeForce RTX 5060 Ti (00000000:01:00)
+Device 1: NVIDIA GeForce RTX 5060 Ti (00000000:02:00)
+
+Running host_to_device_bidirectional_memcpy_ce.
+memcpy CE CPU(row) <-> GPU(column) bandwidth (GB/s)
+           0         1
+ 0     18.02     17.98
+
+SUM host_to_device_bidirectional_memcpy_ce 36.00
+COEFFICIENT_OF_VARIATION host_to_device_bidirectional_memcpy_ce 0.00
+
+Running host_to_device_bidirectional_memcpy_sm.
+memcpy SM CPU(row) <-> GPU(column) bandwidth (GB/s)
+           0         1
+ 0     22.37     22.48
+
+SUM host_to_device_bidirectional_memcpy_sm 44.85
+COEFFICIENT_OF_VARIATION host_to_device_bidirectional_memcpy_sm 0.00
+
+NOTE: The reported results may not reflect the full capabilities of the platform.
+Performance can vary with software drivers, hardware clocks, and system topology.
+```
+
+```bash
+nvbandwidth -p device_to_host_bidirectional -i 128
+```
+
+```text
+nvbandwidth Version: v0.9
+Built from Git version: v0.9
+
+CUDA Runtime Version: 13030
+CUDA Driver Version: 13030
+Driver Version: 610.43.02
+
+archlinux
+Device 0: NVIDIA GeForce RTX 5060 Ti (00000000:01:00)
+Device 1: NVIDIA GeForce RTX 5060 Ti (00000000:02:00)
+
+Running device_to_host_bidirectional_memcpy_ce.
+memcpy CE CPU(row) <-> GPU(column) bandwidth (GB/s)
+           0         1
+ 0     26.83     26.83
+
+SUM device_to_host_bidirectional_memcpy_ce 53.67
+COEFFICIENT_OF_VARIATION device_to_host_bidirectional_memcpy_ce 0.00
+
+Running device_to_host_bidirectional_memcpy_sm.
+memcpy SM CPU(row) <-> GPU(column) bandwidth (GB/s)
+           0         1
+ 0     22.48     22.49
+
+SUM device_to_host_bidirectional_memcpy_sm 44.97
+COEFFICIENT_OF_VARIATION device_to_host_bidirectional_memcpy_sm 0.00
+
+NOTE: The reported results may not reflect the full capabilities of the platform.
+Performance can vary with software drivers, hardware clocks, and system topology.
+```
