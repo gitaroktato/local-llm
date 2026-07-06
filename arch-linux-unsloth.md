@@ -205,3 +205,7 @@ KV cache overhead for your target context length.
 
 - [Context window VS model quantization](https://arxiv.org/pdf/2510.10964)
 - [Qwen3 training and inference optimizations](https://qwen.ai/blog?id=4074cca80393150c248e508aa62983f9cb7d27cd&from=research.latest-advancements-list)
+
+### Qwen model configs
+
+- <https://docsmith.aigne.io/docs/qwen-agent/en/reference-models-d8daab#example%3A-efficient-configuration>
