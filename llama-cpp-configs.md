@@ -1,6 +1,9 @@
 # llama-cpp Configs
 
 
+Tip: Add `--metrics` for metrics
+
+
 ## Qwen 3.6 Q4_XL with 128k context window using Q5_1
 
 
