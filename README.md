@@ -12,6 +12,7 @@ A combination of hardware and software capable of running LLMs for coding locall
 <img src="img/final-machine.jpg" width=350px>
 <img src="img/tpc-arch.png" width=350px>
 
+
 ## References
 
 - <https://zread.ai/abetlen/llama-cpp-python/20-kv-cache-strategies>
