@@ -20,3 +20,6 @@ scrape_configs:
     static_configs:
       - targets: ["localhost:9100"]
 
+  - job_name: "llamacpp-exporter"
+    static_configs:
+      - targets: ["localhost:8888"]
