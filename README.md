@@ -20,6 +20,7 @@ Setting CPU governance
 sudo cpupower frequency-set -g performance
 ```
 
+
 ## References
 
 - <https://zread.ai/abetlen/llama-cpp-python/20-kv-cache-strategies>
