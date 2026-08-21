@@ -12,7 +12,7 @@ Full bill of materials (BOM), PCIe topology, riser cables and 3D-printed parts: 
 
 - CPU: Intel Core i5-14400F · MB: ASUS ROG MAXIMUS Z690 HERO
 - GPU: 2× NVIDIA RTX 5060 Ti 16GB (Gen5 x16 + Gen5 x1 riser path)
-- RAM: 32GB DDR5-5200 (Kingston FURY Beast) · PSU: ASUS ROG 1000W
+- RAM: 32GB DDR5-5200 (Kingston FURY Beast) · PSU: ASUS ROG STRIX 1000G
 
 ## Images
 <img src="img/gpu-holder-screw.png" height=350px>
