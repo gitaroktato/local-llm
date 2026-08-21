@@ -53,7 +53,7 @@ Optimization run 3
 llama-server -m /home/gitaroktato/.cache/huggingface/hub/models--unsloth--Qwen3.8-27B-GGUF/snapshots/f1bfb127c64f7072bdd2cad55f258b9c8b2910fe/Qwen3.8-27B-UD-Q5_K_XL.gguf --port 41207 --parallel 1 --flash-attn on --no-context-shift -c 79616 --ubatch-size 1024 --alias unsloth/Qwen3.8-27B-GGUF -ngl -1 --fit off --metrics --slot-save-path /home/gitaroktato/.unsloth/studio/cache/llama-slots --jinja --split-mode tensor --spec-type draft-mtp --spec-draft-n-max 2 --chat-template-kwargs {"enable_thinking": true, "preserve_thinking": true} --mmproj /home/gitaroktato/.cache/huggingface/hub/models--unsloth--Qwen3.8-27B-GGUF/blobs/cbb841a9ee0636b2ec172f5bb8df2ea8dfeb01e90fe7c6126581d662a0b4e43e --threads 10
 ```
 
-Optimization run 4 (vision on CPU)
+Optimization run 4 (vision on CPU) - not good, eats a lot of CPU
 
 ```bash
 llama-server -m /home/gitaroktato/.cache/huggingface/hub/models--unsloth--Qwen3.8-27B-GGUF/snapshots/f1bfb127c64f7072bdd2cad55f258b9c8b2910fe/Qwen3.8-27B-UD-Q5_K_XL.gguf --port 48705 --parallel 1 --flash-attn on --no-context-shift -c 128000 --ubatch-size 1024 --alias unsloth/Qwen3.8-27B-GGUF --fit on --metrics --slot-save-path /home/gitaroktato/.unsloth/studio/cache/llama-slots --fit-ctx 128000 --fit-target 547 --jinja --spec-type none --chat-template-kwargs {"enable_thinking": true, "preserve_thinking": true} --mmproj /home/gitaroktato/.cache/huggingface/hub/models--unsloth--Qwen3.8-27B-GGUF/blobs/cbb841a9ee0636b2ec172f5bb8df2ea8dfeb01e90fe7c6126581d662a0b4e43e --threads 10 --split-mode layer --no-mmproj-offload
