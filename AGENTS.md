@@ -3,6 +3,13 @@
 Personal lab repo for running LLMs locally on custom hardware.
 Repo: github.com/gitaroktato/local-llm
 
+## Instructions
+
+Any fundamental concept learnt from this project should be saved inside the root `AGENTS.md` file.
+
+- Plan work ends with updating/creating the GitHub issue — do NOT execute the plan's steps inline; the issue is the deliverable, execution happens later from it.
+
+
 ## GitHub Issues
 
 Use `gh` CLI. Check open issues before creating to avoid duplicates:
