@@ -33,3 +33,5 @@ sudo cpupower frequency-set -g performance
 
 - <https://zread.ai/abetlen/llama-cpp-python/20-kv-cache-strategies>
 - <https://github.com/ggml-org/llama.cpp/discussions/14758>
+- <https://us.msi.com/blog/pcie-lane-bifurcation-and-bandwidth-sharing-on-msi-x870e-x870-motherboards>
+- <https://gist.github.com/komikndr/b17955e1a80ce6ede9a3115f16216bc5>
