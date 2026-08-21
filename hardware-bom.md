@@ -1,6 +1,6 @@
 # Hardware BOM
 
-Bill of materials for the local LLM build machine. Entries marked `TBD` are pending identification (see issue #8).
+Bill of materials for the local LLM build machine (identified in issue #8).
 
 ## Bill of Materials
 
@@ -9,11 +9,9 @@ Bill of materials for the local LLM build machine. Entries marked `TBD` are pend
 | CPU | Intel Core i5-14400F | 1 | 10C/16T, up to 4.7 GHz | [Intel ARK](https://ark.intel.com/content/www/us/en/ark/products/236181/intel-core-i5-1440f-processor-20m-cache.html) |
 | Motherboard | ASUS ROG MAXIMUS Z690 HERO | 1 | Intel Z690, ATX | [ASUS product page](https://rog.asus.com/us/motherboards/rog-maximus/rog-maximus-z690-hero-model/spec/) |
 | GPU | NVIDIA GeForce RTX 5060 Ti 16GB (GB206) | 2 | Driver 610.57.04 | [NVIDIA](https://www.nvidia.com/en-us/geforce/graphics-cards/50-series/rtx-5060-ti/) · [TechPowerUp specs](https://www.techpowerup.com/gpu-specs/rtx-5060-ti-16gb.c4273) |
-| RAM | Kingston FURY Beast KF552C36BBEK2-32 (2×16GB DDR5-5200 CL36) | 1 kit (2 DIMMs) | ~32GB total | [Kingston](https://www.kingston.com/en/memory/kf552c36bbeek2-32) |
+| RAM | Kingston FURY Beast KF552C36BBEK2-32 (2×16GB DDR5-5200 CL36) | 1 kit (2 DIMMs) | ~32GB total | [Kingston datasheet](https://www.kingston.com/datasheets/KF552C36BWEAK2-32.pdf) |
 | PSU | ASUS ROG STRIX 1000G (1000W) | 1 | | [ASUS product page](https://rog.asus.com/power-supply-units/rog-strix/rog-strix-1000g-model/) |
-| Case | TBD | 1 | See `img/old-case.jpg` / `img/case-change.jpg` | TBD |
-| CPU cooler | TBD | 1 | | TBD |
-| Storage | TBD | 1+ | | TBD |
+| Case | Corsair 5000T Black (CC-9011300-ww) | 1 | Mid tower, high performance; see `img/case-change.jpg` | [Corsair product page](https://www.corsair.com/us/en/p/pc-cases/cc-9011300-ww/5000t-mid-tower-high-performance-pc-case-cc-9011300-ww) |
 | OS | Arch Linux | — | See [arch-linux-unsloth.md](./arch-linux-unsloth.md) | |
 
 ## PCIe Riser Cables
