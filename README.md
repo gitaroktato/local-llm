@@ -6,6 +6,14 @@ A combination of hardware and software capable of running LLMs for coding locall
 - [Arch Linux and Unsloth](./arch-linux-unsloth.md)
 - [Windows WSL with vLLM](./windows-wsl-vllm.md)
 - 
+## Hardware
+
+Full bill of materials (BOM), PCIe topology, riser cables and 3D-printed parts: [hardware-bom.md](./hardware-bom.md)
+
+- CPU: Intel Core i5-14400F · MB: ASUS ROG MAXIMUS Z690 HERO
+- GPU: 2× NVIDIA RTX 5060 Ti 16GB (Gen5 x16 + Gen5 x1 riser path)
+- RAM: 32GB DDR5-5200 (Kingston FURY Beast) · PSU: ASUS ROG 1000W
+
 ## Images
 <img src="img/gpu-holder-screw.png" height=350px>
 <img src="img/gpu-mount-design.png" width=350px>
