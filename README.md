@@ -28,6 +28,8 @@ Setting CPU governance
 sudo cpupower frequency-set -g performance
 ```
 
+- [GPU power cap ("undervolt")](./gpu-undervolt.md)
+
 
 ## References
 
