@@ -12,6 +12,13 @@ A combination of hardware and software capable of running LLMs for coding locall
 <img src="img/final-machine.jpg" width=350px>
 <img src="img/tpc-arch.png" width=350px>
 
+## Tools
+
+Setting CPU governance
+
+```bash
+sudo cpupower frequency-set -g performance
+```
 
 ## References
 
