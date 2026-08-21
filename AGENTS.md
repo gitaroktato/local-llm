@@ -25,7 +25,7 @@ Use `gh` CLI. Check open issues before creating to avoid duplicates:
 - Bug issues: what happened, environment (OS/driver/CUDA/model), repro steps, expected vs actual.
 - Read an issue: `gh issue view 21`
 - Note progress in a comment: `gh issue comment 21 --body "Applied 165W cap, results pending"`
-- Reference the issue in commits: `Closes #N` / `Fixes #N`.
-- Close with a one-line summary when done: `gh issue close 21 -c "Capped at 150W, ~3% perf loss"`
-- Rejections: label `wontfix`, `duplicate`, or `invalid`, comment why, then close.
+- Reference the issue in commits as `(#N)`. Do NOT use `Closes`/`Fixes` keywords — they auto-close the issue on merge.
+- NEVER close an issue yourself (no `gh issue close`, no closing keywords anywhere). Work is delivered via a merge request: commit to a feature branch, then open `gh pr create --base main --title "Short outcome phrase" --body "Work for #N"` and stop. The owner reviews and merges the PR; only after that may the issue be closed, and by the owner — not you.
+- Rejections: label `wontfix`, `duplicate`, or `invalid` and comment why; closing is left to the owner.
 - Plan changed mid-work? Update the body: `gh issue edit 21 --body "$(cat updated-plan.md)"`
