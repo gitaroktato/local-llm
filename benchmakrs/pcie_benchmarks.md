@@ -1,5 +1,28 @@
 # PCIe Benchmarks
 
+## Stress test: GPU 1 via riser, 2026-10-09 (issue #36)
+
+GPU 1 (`00000000:02:00.0`) under sustained bidirectional memcpy load, with link state polled every 2 s during the run.
+
+```bash
+CUDA_VISIBLE_DEVICES=1 ~/bin/nvbandwidth -p host_to_device_bidirectional -b 128 -i 100
+CUDA_VISIBLE_DEVICES=1 ~/bin/nvbandwidth -p device_to_host_bidirectional -b 128 -i 100
+
+# link state poller (parallel)
+watch -n2 'nvidia-smi -i 1 --query-gpu=pcie.link.gen.current,pcie.link.gen.max,pcie.link.width.current,pcie.link.width.max --format=csv'
+```
+
+Results:
+
+| Test | CE | SM |
+|---|---|---|
+| host→device bidirectional | 17.88 GB/s | 22.20 GB/s |
+| device→host bidirectional | 26.73 GB/s | 22.24 GB/s |
+
+- Link state: held `Gen 5 x8` (max) throughout the entire run — no downshifts under load.
+- AER check after stress (`sudo dmesg | grep -iE "pcie|aer"`): no errors.
+- Bandwidth matches the single-GPU riser results below (~18 / ~22 / ~27 GB/s).
+
 ## Diagnostics
 
 ```bash
