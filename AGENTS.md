@@ -9,6 +9,18 @@ Any fundamental concept learnt from this project should be saved inside the root
 
 - Plan work ends with updating/creating the GitHub issue — do NOT execute the plan's steps inline; the issue is the deliverable, execution happens later from it.
 
+## Token Generation Benchmarking
+
+This OpenCode conversation is itself served by the local llama-server, so per-turn timings are free to read — no external benchmark harness needed. The Studio build has no `llama-bench` binary; in-session measurement is the tool.
+
+- Server logs: `~/.unsloth/studio/logs/llama-server/*.log`, one file per server session (`llama-<epoch>-port-<port>-try0.log`). Newest file = current live server.
+- Live process + actual launch args: `ps -eo pid,etime,args | grep llama-server`. Cross-check against the newest log — trust the args in the log over the Studio UI selection.
+- Per-turn speed: `print_timing` lines in the active log — `eval time = X ms / N tokens (T tok/s)`, plus `draft acceptance` and `mean len` for spec decoding.
+- Spec config that actually ran: `spec common_specu: adding speculative implementation '<name>'` + its params, and `spec common_specu: statistics` lines. Acceptance × mean draft length is what determines effective tok/s, not raw engine speed.
+- Build identification: each log starts with a build banner (build number + commit hash); the model snapshot hash is in the load section. Use both to attribute a perf change to binary vs config vs model.
+- Gotcha: Studio spec "auto" resolves to NO implementation unless a drafter is available, and an unavailable drafter (e.g. missing `dflash-*.gguf` sidecar) silently falls back to `--spec-default` → ngram-mod. Always set the spec type explicitly and verify the log line before measuring.
+- Flag choices for any build: `~/.unsloth/llama.cpp/llama-server --help` (e.g. `--spec-type` lists all supported implementations). Saved launch commands live in `llama-cpp-configs.md`.
+
 ## Privileged Commands (sudo)
 
 The owner executes ALL `sudo` commands personally. The agent must NEVER run sudo itself (no passwordless probing either). Instead: prepare everything else locally, then hand the exact sudo commands to the owner as a copy-paste block and wait for confirmation before continuing.
