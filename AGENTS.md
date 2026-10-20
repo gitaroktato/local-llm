@@ -20,6 +20,7 @@ Usually the LLM conversations are itself served by the local llama-server, so pe
 - Build identification: each log starts with a build banner (build number + commit hash); the model snapshot hash is in the load section. Use both to attribute a perf change to binary vs config vs model.
 - Gotcha: Studio spec "auto" resolves to NO implementation unless a drafter is available, and an unavailable drafter (e.g. missing `dflash-*.gguf` sidecar) silently falls back to `--spec-default` → ngram-mod. Always set the spec type explicitly and verify the log line before measuring.
 - Flag choices for any build: `~/.unsloth/llama.cpp/llama-server --help` (e.g. `--spec-type` lists all supported implementations). Saved launch commands live in `llama-cpp-configs.md`.
+- Prometheus endpoint `/metrics` (Studio launches with `--metrics`; port from `ps`): auth via `Authorization: Bearer $(cat ~/.unsloth/studio/auth/llama_api_key_*)`. Counters are cumulative since server start — measure as deltas between two scrapes. Useful extras over the logs: per-position draft acceptance (`spec_decode_num_accepted_tokens_per_pos_total{position=N}`) shows whether a deeper `--spec-draft-n-max` would pay off, and `prompt_tokens_cached_total` vs `prompt_tokens_total` gives KV cache reuse ratio.
 
 ## Privileged Commands (sudo)
 
