@@ -9,9 +9,9 @@ Any fundamental concept learnt from this project should be saved inside the root
 
 - Plan work ends with updating/creating the GitHub issue — do NOT execute the plan's steps inline; the issue is the deliverable, execution happens later from it.
 
-## Token Generation Benchmarking
+## Performance Benchmarking
 
-This OpenCode conversation is itself served by the local llama-server, so per-turn timings are free to read — no external benchmark harness needed. The Studio build has no `llama-bench` binary; in-session measurement is the tool.
+Usually the LLM conversations are itself served by the local llama-server, so per-turn timings are free to read — no external benchmark harness needed. The Studio build has no `llama-bench` binary; in-session measurement is the tool.
 
 - Server logs: `~/.unsloth/studio/logs/llama-server/*.log`, one file per server session (`llama-<epoch>-port-<port>-try0.log`). Newest file = current live server.
 - Live process + actual launch args: `ps -eo pid,etime,args | grep llama-server`. Cross-check against the newest log — trust the args in the log over the Studio UI selection.
