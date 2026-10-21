@@ -60,6 +60,14 @@ llama-server -m /home/gitaroktato/.cache/huggingface/hub/models--unsloth--Qwen3.
 ```
 
 
+### MTP+Ngram combined spec (final performance check, build 11734)
+
+```bash
+llama-server -m /home/gitaroktato/.cache/huggingface/hub/models--unsloth--Qwen3.8-27B-GGUF/snapshots/4ca720788d1e01f1bff70c033e0d0028fd02e502/Qwen3.8-27B-UD-Q4_K_XL.gguf --port 50411 --parallel 1 --flash-attn on --no-context-shift -c 128000 --ubatch-size 1024 --alias unsloth/Qwen3.8-27B-GGUF -ngl -1 --fit off --metrics --slot-save-path /home/gitaroktato/.unsloth/studio/cache/llama-slots --jinja --split-mode tensor --spec-type ngram-mod,draft-mtp --spec-draft-n-max 2 --spec-ngram-mod-n-match 24 --spec-ngram-mod-n-min 48 --spec-ngram-mod-n-max 64 --reasoning on --chat-template-kwargs {"preserve_thinking": true} --mmproj /home/gitaroktato/.cache/huggingface/hub/models--unsloth--Qwen3.8-27B-GGUF/snapshots/4ca720788d1e01f1bff70c033e0d0028fd02e502/mmproj-F16.gguf --ctx-checkpoints 10 --threads 10 --chat-template-file /home/gitaroktato/Projects/local-llm/chat-templates/qwen3.8-froggeric-v22.3.jinja --reasoning-format deepseek
+```
+
+Measured (build 11734, `216986d87`, Q4_K_XL snapshot `4ca72078`): long 3973-token generation at **65.3 tok/s** overall (rolling 66–70 t/s). MTP does the work: mean acc len ~2.2–2.4, acc rate/pos ≈ (0.72, 0.50). ngram-mod fired 4/3169 calls — negligible for prose/chat; only pays off on repetitive text. ≈ same as MTP-only (~63 tok/s), still below the Oct 9 baseline of ~76–77 tok/s (see issue #41).
+
 ## Interesting things to try
 
 - <https://www.reddit.com/r/LocalLLM/comments/1was9n0/running_qwen_38_27b_at_q4_on_16gb_vram_at_200k/>
