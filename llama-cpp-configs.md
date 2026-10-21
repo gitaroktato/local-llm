@@ -31,7 +31,17 @@ llama-server -m /home/gitaroktato/.cache/huggingface/hub/models--unsloth--Qwen3.
 ```
 
 
+## Qwen 3.8 - validated default (build 11734, MTP n-max 2)
+
+Measured on build 11734 (`216986d87`), dual RTX 5060 Ti tensor split: **67–72 tok/s** with MTP acceptance 0.81–0.88 (mean len 2.62–2.76). Base decode without spec is 33.8 tok/s; ngram-mod alone ~32–34 (no gain); MTP+ngram ≈ MTP-only (65.3 on a long run, ngram fired 4/3169 calls). Always set `--spec-type` explicitly — Studio's "auto" resolves to no spec implementation. See issue #41.
+
+```bash
+llama-server -m /home/gitaroktato/.cache/huggingface/hub/models--unsloth--Qwen3.8-27B-GGUF/snapshots/4ca720788d1e01f1bff70c033e0d0028fd02e502/Qwen3.8-27B-UD-Q4_K_XL.gguf --port 8888 --parallel 1 --flash-attn on --no-context-shift -c 128000 --ubatch-size 1024 --alias unsloth/Qwen3.8-27B-GGUF -ngl -1 --fit off --metrics --slot-save-path /home/gitaroktato/.unsloth/studio/cache/llama-slots --jinja --split-mode tensor --spec-type draft-mtp --spec-draft-n-max 2 --chat-template-kwargs '{"enable_thinking": true, "preserve_thinking": true}' --mmproj /home/gitaroktato/.cache/huggingface/hub/models--unsloth--Qwen3.8-27B-GGUF/snapshots/4ca720788d1e01f1bff70c033e0d0028fd02e502/mmproj-F16.gguf --threads 10
+```
+
 ## Qwen 3.8 - split-mode tensor (simple run)
+
+Stale: `--spec-type ngram-mod` measured ~33 t/s, no gain over base — superseded by the MTP default above.
 
 ```bash
 llama-server -m /home/gitaroktato/.cache/huggingface/hub/models--unsloth--Qwen3.8-27B-GGUF/snapshots/f1bfb127c64f7072bdd2cad55f258b9c8b2910fe/Qwen3.8-27B-UD-Q5_K_XL.gguf --port 8888 --parallel 4 --flash-attn on --no-context-shift -c 128000 --alias unsloth/Qwen3.8-27B-GGUF -ngl -1 --threads 16 --split-mode tensor --fit off --metrics --slot-save-path /home/gitaroktato/.unsloth/studio/cache/llama-slots --cache-type-k bf16 --cache-type-v bf16 --kv-unified --jinja --spec-type ngram-mod --spec-ngram-mod-n-match 24 --spec-ngram-mod-n-min 48 --spec-ngram-mod-n-max 64 --chat-template-kwargs '{"enable_thinking": true, "preserve_thinking": false, "reasoning_effort":"medium"}' --mmproj /home/gitaroktato/.cache/huggingface/hub/models--unsloth--Qwen3.8-27B-GGUF/snapshots/f1bfb127c64f7072bdd2cad55f258b9c8b2910fe/mmproj-F16.gguf
